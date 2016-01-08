@@ -2,13 +2,75 @@
 % Please edit documentation in R/exploding_boxplot.R
 \name{exploding_boxplot}
 \alias{exploding_boxplot}
-\title{<Add Title...>}
+\title{Interactive Exploding Boxplots}
 \usage{
 exploding_boxplot(data, y = NULL, group = NULL, color = NULL,
   label = NULL, iqr = NULL, margin = NULL, xlab = NULL, ylab = NULL,
   width = NULL, height = NULL, elementId = NULL)
 }
+\arguments{
+\item{data}{\code{data.frame} to plot}
+
+\item{y}{\code{string} representing the column name for aes y}
+
+\item{group}{\code{string} representing the column name for aes group}
+
+\item{color}{\code{string} representing the column name for aes color}
+
+\item{label}{\code{string} representing the column name for aes label}
+
+\item{margin}{\code{list} in \code{list(bottom = , left = , top = , right = )} format}
+
+\item{xlab}{\code{string} for the label of the x axis. Note, currently not working.}
+
+\item{ylab}{\code{string} for the label of the y axis.}
+
+\item{width, height}{any valid \code{CSS} size unit for the height and width of the htmlwidget}
+
+\item{elementId}{likely \code{NULL} unless you would like to manually specify a \code{CSS} selector id to the htmlwidget container}
+}
 \description{
-<Add Description>
+Create interactive d3.js exploding boxplots using
+ \href{https://github.com/mcaule/d3_exploding_boxplot}{d3_exploding_boxplot}
+}
+\examples{
+# devtools::install_github("timelyportfolio/explodingboxplotR")
+
+library(explodingboxplotR)
+
+# use this to replicate
+#   from ?boxplot
+#boxplot(count ~ spray, data = InsectSprays, col = "lightgray")
+
+exploding_boxplot(
+  data.frame(
+    rowname = rownames(InsectSprays),
+    InsectSprays,
+    stringsAsFactors = FALSE
+  ),
+  y = "count",
+  group = "spray",
+  color = "spray",
+  label = "rowname"
+)
+
+# demonstrate all of the options
+#  xlab does not work
+#  filed issue on source repo
+exploding_boxplot(
+  data.frame(
+    rowname = rownames(InsectSprays),
+    InsectSprays,
+    stringsAsFactors = FALSE
+  ),
+  y = "count",
+  group = "spray",
+  color = "spray",
+  label = "rowname",
+  iqr = 2,
+  margin = list(bottom = 50, left = 30, top = 20, right = 20),
+  xlab = "Spray Type",
+  ylab = "Count Provided"
+)
 }
 

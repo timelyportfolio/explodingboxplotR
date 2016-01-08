@@ -18,6 +18,9 @@ exploding_boxplot(
   label = "rowname"
 )
 
+# demonstrate all of the options
+#  xlab does not work
+#  filed issue on source repo
 exploding_boxplot(
   data.frame(
     rowname = rownames(InsectSprays),

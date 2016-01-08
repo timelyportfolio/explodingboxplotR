@@ -1,7 +1,21 @@
-#' <Add Title...>
+#' Interactive Exploding Boxplots
 #'
-#' <Add Description>
+#' Create interactive d3.js exploding boxplots using
+#'  \href{https://github.com/mcaule/d3_exploding_boxplot}{d3_exploding_boxplot}
 #'
+#' @param data \code{data.frame} to plot
+#' @param y \code{string} representing the column name for aes y
+#' @param group \code{string} representing the column name for aes group
+#' @param color \code{string} representing the column name for aes color
+#' @param label \code{string} representing the column name for aes label
+#' @param margin \code{list} in \code{list(bottom = , left = , top = , right = )} format
+#' @param xlab \code{string} for the label of the x axis. Note, currently not working.
+#' @param ylab \code{string} for the label of the y axis.
+#' @param width,height any valid \code{CSS} size unit for the height and width of the htmlwidget
+#' @param elementId likely \code{NULL} unless you would like to manually specify a \code{CSS} selector id to the htmlwidget container
+#'
+#' @example ./inst/examples/examples.R
+#' 
 #' @import htmlwidgets
 #'
 #' @export
