@@ -7,7 +7,14 @@
 #' @export
 exploding_boxplot <- function(
   data,
-  ...,
+  y = NULL,
+  group = NULL,
+  color = NULL,
+  label = NULL,
+  iqr = NULL,
+  margin = NULL,
+  xlab = NULL,
+  ylab = NULL,
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -16,7 +23,24 @@ exploding_boxplot <- function(
   # forward options using x
   x = list(
     data = data,
-    options = ...
+    aes = Filter(
+      Negate(is.null),
+      list(
+        y = y,
+        group = group,
+        color = color,
+        label = label
+      )
+    ),
+    options = Filter(
+      Negate(is.null),
+      list(
+        iqr = iqr,
+        margin = margin,
+        xlab = xlab,
+        ylab = ylab
+      )
+    )
   )
 
   # create widget

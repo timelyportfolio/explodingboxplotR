@@ -4,8 +4,9 @@
 \alias{exploding_boxplot}
 \title{<Add Title...>}
 \usage{
-exploding_boxplot(data, ..., width = NULL, height = NULL,
-  elementId = NULL)
+exploding_boxplot(data, y = NULL, group = NULL, color = NULL,
+  label = NULL, iqr = NULL, margin = NULL, xlab = NULL, ylab = NULL,
+  width = NULL, height = NULL, elementId = NULL)
 }
 \description{
 <Add Description>
