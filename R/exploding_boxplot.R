@@ -15,16 +15,17 @@ exploding_boxplot <- function(
 
   # forward options using x
   x = list(
-    message = message
+    data = data,
+    options = ...
   )
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'exploding_boxplot',
+    name = 'exploding-boxplot',
     x = x,
     width = width,
     height = height,
-    package = 'exploding_boxplotR',
+    package = 'explodingboxplotR',
     elementId = elementId
   )
 }
@@ -35,7 +36,7 @@ exploding_boxplot <- function(
 #' applications and interactive Rmd documents.
 #'
 #' @param outputId output variable to read from
-#' @param width,height Must be a valid CSS unit (like \\code{'100\\%'},
+#' @param width,height Must be a valid CSS unit (like \\code{'100\%'},
 #'   \\code{'400px'}, \\code{'auto'}) or a number, which will be coerced to a
 #'   string and have \\code{'px'} appended.
 #' @param expr An expression that generates a exploding_boxplot
@@ -47,7 +48,7 @@ exploding_boxplot <- function(
 #'
 #' @export
 exploding_boxplotOutput <- function(outputId, width = '100%', height = '400px'){
-  shinyWidgetOutput(outputId, 'exploding_boxplot', width, height, package = 'exploding_boxplotR')
+  shinyWidgetOutput(outputId, 'exploding_boxplot', width, height, package = 'explodingboxplotR')
 }
 
 #' @rdname exploding_boxplot-shiny
