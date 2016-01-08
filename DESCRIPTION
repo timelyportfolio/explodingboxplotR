@@ -1,0 +1,12 @@
+Package: exploding_boxplotR
+Title: d3.js Exploding Boxplots
+Version: 0.0.1
+Author: Kenton Russell
+Maintainer: Kenton Russell <kent.russell@timelyportfolio.com>
+Description: d3.js Exploding Boxplots
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/timelyportfolio/exploding_boxplotR
+BugReports: https://github.com/timelyportfolio/exploding_boxplotR/issues
+Suggests: 
+    testthat
