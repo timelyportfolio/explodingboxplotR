@@ -1,12 +1,37 @@
 Package: exploding_boxplotR
 Title: d3.js Exploding Boxplots
 Version: 0.0.1
-Author: Kenton Russell
+Date: 2016-01-07
+Authors@R: c(
+      person(
+        "Mike", "Bostock"
+        , role = c("aut", "cph")
+        , comment = "d3.js library in htmlwidgets/lib, http://d3js.org"
+      ),
+      person(
+        "Justin", "Palmer"
+        , role = c("aut", "cph")
+        , comment = "d3-tip library in htmlwidgets/lib, https://github.com/Caged/d3-tip"
+      ),
+      person(
+        "Matthieu", "Caule"
+        , role = c("aut", "cph")
+        , comment = "d3_exploding_boxplot library in htmlwidgets/lib, https://github.com/mcaule/d3_exploding_boxplot"
+      ),
+      person(
+        "Kent", "Russell"
+        , role = c("aut", "cre")
+        , comment = "R interface"
+        , email = "kent.russell@timelyportfolio.com"
+      )
+    )
 Maintainer: Kenton Russell <kent.russell@timelyportfolio.com>
 Description: d3.js Exploding Boxplots
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/timelyportfolio/exploding_boxplotR
 BugReports: https://github.com/timelyportfolio/exploding_boxplotR/issues
+Imports:
+    htmlwidgets
 Suggests: 
     testthat

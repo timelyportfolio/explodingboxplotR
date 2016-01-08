@@ -1,0 +1,14 @@
+dependencies:
+  - name: d3
+    version: 3.5.5
+    src: htmlwidgets/lib/d3
+    script: d3.min.js
+  - name: d3-tip
+    version: 0.6.7
+    src: htmlwidgets/lib/d3-tip
+    script: d3-tip.js
+  - name: d3_exploding_boxplot
+    version: 0.1 
+    src: htmlwidgets/lib/d3_exploding_boxplot
+    script: d3_exploding_boxplot.js
+    stylesheet: d3_exploding_boxplot.css
