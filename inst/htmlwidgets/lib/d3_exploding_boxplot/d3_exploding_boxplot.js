@@ -113,6 +113,9 @@ function(d3,d3tip)
 
 
     var svg,container,tip
+    
+    var dispatch = d3.dispatch("explode","implode","boxover","boxout");
+    
     var chart = function(elem)
     {
       svg = d3.select(elem).append('svg')
@@ -197,6 +200,12 @@ function(d3,d3tip)
 				.attr('class','d3-exploding-boxplot box')
 				.on('click',function(d){
 					explode_boxplot(this.parentElement,g)
+				})
+				.on('mouseover',function(d){
+				  dispatch.boxover(chart,d);
+				})
+				.on('mouseout',function(d){
+				  dispatch.boxout(chart,d);
 				})
 				.selectAll('.box')
 				.data([g])
@@ -294,6 +303,8 @@ function(d3,d3tip)
 							return 300+300*Math.random()
 						})
 						.call(draw_jitter)
+				
+			dispatch.explode(chart,g);
 		};
 		var implode_boxplot = function(elem,g){
 			container.selectAll('.normal-points')
@@ -317,6 +328,8 @@ function(d3,d3tip)
 					.duration(300)
 					.delay(200)
           .call(draw_boxplot)
+          
+      dispatch.implode(chart,g);
 		}
 		var create_tip = function(){
 			tip = d3tip().attr('class','d3-exploding-boxplot tip')
@@ -396,6 +409,8 @@ function(d3,d3tip)
       colorscale.range(_)
       return chart;
     };
+    
+    chart = d3.rebind(chart, dispatch, 'on');
 
 
     return chart;

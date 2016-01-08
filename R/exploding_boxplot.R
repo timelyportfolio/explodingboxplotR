@@ -31,7 +31,8 @@ exploding_boxplot <- function(
   ylab = NULL,
   width = NULL,
   height = NULL,
-  elementId = NULL
+  elementId = NULL,
+  crosstalk_group = NULL
 ) {
 
   # forward options using x
@@ -54,7 +55,8 @@ exploding_boxplot <- function(
         xlab = xlab,
         ylab = ylab
       )
-    )
+    ),
+    crosstalk_group = crosstalk_group
   )
 
   # create widget
@@ -64,7 +66,8 @@ exploding_boxplot <- function(
     width = width,
     height = height,
     package = 'explodingboxplotR',
-    elementId = elementId
+    elementId = elementId,
+    dependencies = crosstalk::dependencies
   )
 }
 
@@ -86,7 +89,7 @@ exploding_boxplot <- function(
 #'
 #' @export
 exploding_boxplotOutput <- function(outputId, width = '100%', height = '400px'){
-  shinyWidgetOutput(outputId, 'exploding_boxplot', width, height, package = 'explodingboxplotR')
+  shinyWidgetOutput(outputId, 'exploding-boxplot', width, height, package = 'explodingboxplotR')
 }
 
 #' @rdname exploding_boxplot-shiny

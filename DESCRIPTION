@@ -32,6 +32,7 @@ LazyData: true
 URL: https://github.com/timelyportfolio/exploding_boxplotR
 BugReports: https://github.com/timelyportfolio/exploding_boxplotR/issues
 Imports:
+    crosstalk,
     htmlwidgets
 Suggests:
     testthat

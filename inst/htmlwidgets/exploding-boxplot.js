@@ -31,6 +31,22 @@ HTMLWidgets.widget({
         chart.width(el.getBoundingClientRect().width);
         chart.height(el.getBoundingClientRect().height);
         
+        // experiment - work with crosstalk
+        var ctgrp;
+        if(x.crosstalk_group){
+          ctgrp = crosstalk.group(x.crosstalk_group);
+        } else {
+          ctgrp = crosstalk.defaultGroup;
+        }
+        
+        chart.on('boxover',function(cht,g){
+          ctgrp.var("selection").set(g.group, {sender: el});
+        });
+        
+        chart.on('boxout',function(cht,g){
+          ctgrp.var("selection").set(null, {sender:el});
+        });
+        
         chart(el);
         
       },
