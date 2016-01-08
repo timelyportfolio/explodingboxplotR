@@ -23,12 +23,14 @@ d3.js Exploding Boxplots from [`d3_exploding_boxplot`](https://github.com/mcaule
 ```{r eval = FALSE}
 # get newest htmlwidgets
 devtools::install_github("ramnathv/htmlwidgets")
-devtools::install_github("timelyportfolio/exploding_boxplotR")
+devtools::install_github("timelyportfolio/explodingboxplotR")
 ```
 
 ## Usage
 
 ```{r eval = FALSE}
+library(explodingboxplotR)
+
 # use this to replicate
 #   from ?boxplot
 #boxplot(count ~ spray, data = InsectSprays, col = "lightgray")

@@ -7,18 +7,21 @@ exploding\_boxplotR
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/exploding_boxplotR)](http://www.r-pkg.org/pkg/exploding_boxplotR)
 
-d3.js Exploding Boxplots from [`d3_exploding_boxplot`](https://github.com/mcaule/d3_exploding_boxplot) in
-[`htmlwidget`](http://htmlwidgets.org) form for `R`
+d3.js Exploding Boxplots from
+[`d3_exploding_boxplot`](https://github.com/mcaule/d3_exploding_boxplot)
+in [`htmlwidget`](http://htmlwidgets.org) form for `R`
 
 Installation
 ------------
 
     # get newest htmlwidgets
     devtools::install_github("ramnathv/htmlwidgets")
-    devtools::install_github("timelyportfolio/exploding_boxplotR")
+    devtools::install_github("timelyportfolio/explodingboxplotR")
 
 Usage
 -----
+
+    library(explodingboxplotR)
 
     # use this to replicate
     #   from ?boxplot
