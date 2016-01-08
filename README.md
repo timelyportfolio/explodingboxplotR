@@ -7,7 +7,7 @@ exploding\_boxplotR
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/exploding_boxplotR)](http://www.r-pkg.org/pkg/exploding_boxplotR)
 
-d3.js Exploding Boxplots from [`d3_exploding_boxplot`]() in
+d3.js Exploding Boxplots from [`d3_exploding_boxplot`](https://github.com/mcaule/d3_exploding_boxplot) in
 [`htmlwidget`](http://htmlwidgets.org) form for `R`
 
 Installation
