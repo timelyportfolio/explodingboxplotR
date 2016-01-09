@@ -1,5 +1,5 @@
 .exploding-boxplot .axis {
-  font: 10px sans-serif;
+      font: 15px Roboto;
 }
 
 .exploding-boxplot .axis path,
@@ -7,6 +7,7 @@
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+  visibility: hidden;
 }
 
 .exploding-boxplot .x.axis path {
@@ -20,8 +21,7 @@
 .exploding-boxplot line.d3-exploding-boxplot.line,
 .exploding-boxplot rect.d3-exploding-boxplot.box
 {
-  stroke: #888;
-  stroke-width: 2px;
+  stroke: black;
 }
 
 .exploding-boxplot line.d3-exploding-boxplot.vline{
