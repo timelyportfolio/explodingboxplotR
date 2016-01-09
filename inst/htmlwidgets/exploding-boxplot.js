@@ -3,17 +3,22 @@ HTMLWidgets.widget({
   name: 'exploding-boxplot',
 
   type: 'output',
-
-  factory: function(el, width, height) {
+  
+  initialize: function(el, width, height) {
+   
+    // create our sigma object and bind it to the element
     var chart = {};
     
+    // return it as part of our instance data
     return {
-      
-      renderValue: function(x) {
-        
-        // empty el in case of dynamic/Shiny situation
+      exploding_boxplot: chart
+    };
+  },
+  
+  renderValue: function(el, x, instance){ 
+    // empty el in case of dynamic/Shiny situation
         el.innerHTML = "";
-        
+
         chart = d3.exploding_boxplot(
           HTMLWidgets.dataframeToD3(x.data), x.aes
         );
@@ -32,13 +37,10 @@ HTMLWidgets.widget({
         chart.height(el.getBoundingClientRect().height);
         
         chart(el);
-        
-      },
-      
-      resize: function(width, height) {
-
-      }
-    };
+  },
+  
+  resize: function(width, height) {
 
   }
+
 });
