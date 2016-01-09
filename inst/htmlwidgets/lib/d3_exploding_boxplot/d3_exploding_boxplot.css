@@ -7,7 +7,6 @@
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
-  visibility: hidden;
 }
 
 .exploding-boxplot .x.axis path {
