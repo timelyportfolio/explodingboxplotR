@@ -12,7 +12,7 @@
 function(d3,d3tip)
 {
 
-  var default_colors = ["#1a476f", "#90353b", "#55752f", "#e37e00", "#6e8e84", "#c10534", "#938dd2", "#cac27e", "#a0522d", "#7b92a8", "#2d6d66", "#9c8847"];
+  var default_colors = ["#a6cee3","#ff7f00","#b2df8a","#1f78b4","#fdbf6f","#33a02c","#cab2d6","#6a3d9a","#fb9a99","#e31a1c","#ffff99","#b15928"];
   var compute_boxplot = function(data,iqr_k,value){
     iqr_k = iqr_k || 1.5
     value = value || Number
