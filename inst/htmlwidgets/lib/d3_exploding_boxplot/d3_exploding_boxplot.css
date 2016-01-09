@@ -1,5 +1,5 @@
 .exploding-boxplot .axis {
-      font: 15px Roboto;
+   font: 10px sans-serif;
 }
 
 .exploding-boxplot .axis path,
@@ -21,7 +21,8 @@
 .exploding-boxplot line.d3-exploding-boxplot.line,
 .exploding-boxplot rect.d3-exploding-boxplot.box
 {
-  stroke: black;
+  stroke: #888;
+  stroke-width: 2px;
 }
 
 .exploding-boxplot line.d3-exploding-boxplot.vline{
