@@ -6,7 +6,7 @@
 \usage{
 exploding_boxplot(data, y = NULL, group = NULL, color = NULL,
   label = NULL, iqr = NULL, margin = NULL, xlab = NULL, ylab = NULL,
-  width = NULL, height = NULL, elementId = NULL)
+  width = NULL, height = NULL, elementId = NULL, crosstalk_group = NULL)
 }
 \arguments{
 \item{data}{\code{data.frame} to plot}
