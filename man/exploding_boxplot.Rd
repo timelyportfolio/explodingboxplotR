@@ -72,5 +72,37 @@ exploding_boxplot(
   xlab = "Spray Type",
   ylab = "Count Provided"
 )
+
+
+# use new htmlwidgets on render to customize tooltip
+htmlwidgets::onRender(
+  exploding_boxplot(
+    data.frame(
+      rowname = rownames(InsectSprays),
+      InsectSprays,
+      stringsAsFactors = FALSE
+    ),
+    y = "count",
+    group = "spray",
+    color = "spray",
+    label = "rowname"
+  ),
+  "
+function(){
+  this.chart.tip.html(function(d){
+    return [
+      '<span style = \\\\'font-size:150\%\\\\'>',
+      d.spray,
+      ' |  ',
+      '</span>',
+      ' count of',
+      d.count,
+      ' from rowname ',
+      d.rowname
+    ].join('\\\\n')
+  })
+}
+  "
+)
 }
 
