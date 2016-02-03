@@ -1,0 +1,65 @@
+---
+title: "Intro to Exploding Boxplots"
+author: "Kenton Russell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Intro to Exploding Boxplots}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+[Exploding Boxplots](https://github.com/mcaule/d3_exploding_boxplot) provide a fun and useful look at the distribution of data.  This `R` package [`explodingboxplotR`](https://github.com/timelyportfolio/explodingboxplotR) uses `htmlwidgets` to allow us to incorporate these exploding boxplots in all R contexts, such as `rmarkdown`, `Shiny`, the `R` console, and in a web browser.
+
+### Install
+
+`explodingboxplotR` is not on CRAN, so we'll use `devtools::install_github` to install.
+
+```{r eval = FALSE}
+devtools::install_github("timelyportfolio/explodingboxplotR")
+```
+
+### Use
+
+```{r}
+library(explodingboxplotR)
+
+# use this to replicate
+#   from ?boxplot
+#boxplot(count ~ spray, data = InsectSprays, col = "lightgray")
+
+exploding_boxplot(
+  data.frame(
+    rowname = rownames(InsectSprays),
+    InsectSprays,
+    stringsAsFactors = FALSE
+  ),
+  y = "count",
+  group = "spray",
+  color = "spray",
+  label = "rowname"
+)
+```
+
+We get some options to customize our exploding boxplots.  Let's look at these in the next example.
+
+```{r}
+# demonstrate all of the options
+#  xlab does not work
+#  filed issue on source repo
+exploding_boxplot(
+  data.frame(
+    rowname = rownames(InsectSprays),
+    InsectSprays,
+    stringsAsFactors = FALSE
+  ),
+  y = "count",
+  group = "spray",
+  color = "spray",
+  label = "rowname",
+  iqr = 2,
+  margin = list(bottom = 50, left = 30, top = 20, right = 20),
+  xlab = "Spray Type",
+  ylab = "Count Provided"
+)
+```

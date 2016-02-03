@@ -31,8 +31,11 @@ License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/timelyportfolio/exploding_boxplotR
 BugReports: https://github.com/timelyportfolio/exploding_boxplotR/issues
-Imports:
+Imports: 
     htmlwidgets
-Suggests:
-    testthat
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 4.1.1.9001
+VignetteBuilder: knitr
