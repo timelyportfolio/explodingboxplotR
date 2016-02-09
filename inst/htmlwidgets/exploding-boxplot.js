@@ -3,18 +3,18 @@ HTMLWidgets.widget({
   name: 'exploding-boxplot',
 
   type: 'output',
-
+  
   factory: function(el, width, height) {
-    var chart = {};
-    
+
     return {
       
+      chart: {},
+      
       renderValue: function(x) {
-        
         // empty el in case of dynamic/Shiny situation
         el.innerHTML = "";
         
-        chart = d3.exploding_boxplot(
+        var chart = d3.exploding_boxplot(
           HTMLWidgets.dataframeToD3(x.data), x.aes
         );
         
@@ -30,8 +30,10 @@ HTMLWidgets.widget({
         // set height and width to fit container
         chart.width(el.getBoundingClientRect().width);
         chart.height(el.getBoundingClientRect().height);
-        
+
         chart(el);
+        
+        this.chart = chart;
         
       },
       
