@@ -60,14 +60,14 @@ function(d3,d3tip)
     var height = 480
     var width = 600
     var boxpadding = 0.2
-    var margin = {top:10,bottom:20,left:30,right:10}
+    var margin = {top:10,bottom:30,left:40,right:10}
 
     aes.color = aes.color || aes.group
     aes.radius = aes.radius || d3.functor(3)
 		aes.label = aes.label || d3.functor('aes.label undefined')
 
     var ylab = typeof aes.y === "string" ? aes.y : ""
-    var xlab = typeof aes.x === "string" ? aes.x : ""
+    var xlab = typeof aes.group === "string" ? aes.group : ""
 
     var yscale = d3.scale.linear()
                       .domain(d3.extent(data.map(functorkey(aes.y))))
@@ -113,6 +113,9 @@ function(d3,d3tip)
 
 
     var svg,container,tip
+    
+    var dispatch = d3.dispatch("explode","implode","boxover","boxout");
+    
     var chart = function(elem)
     {
       svg = d3.select(elem).append('svg')
@@ -139,7 +142,13 @@ function(d3,d3tip)
       container.append('g')
             .attr('class','d3-exploding-boxplot x axis')
             .attr("transform", "translate(0,"+ (height-margin.top-margin.bottom) +")")
-            .call(xAxis);
+            .call(xAxis)
+          .append("text")
+            .attr("x",(width-margin.left-margin.right)/2)
+            .attr("dy", ".71em")
+            .attr('y',margin.bottom-14)
+            .style("text-anchor", "middle")
+            .text(xlab);
 
       container.append('g')
             .attr('class','d3-exploding-boxplot y axis')
@@ -197,6 +206,12 @@ function(d3,d3tip)
 				.attr('class','d3-exploding-boxplot box')
 				.on('click',function(d){
 					explode_boxplot(this.parentElement,g)
+				})
+				.on('mouseover',function(d){
+				  dispatch.boxover(chart,d);
+				})
+				.on('mouseout',function(d){
+				  dispatch.boxout(chart,d);
 				})
 				.selectAll('.box')
 				.data([g])
@@ -294,6 +309,8 @@ function(d3,d3tip)
 							return 300+300*Math.random()
 						})
 						.call(draw_jitter)
+				
+			dispatch.explode(chart,g);
 		};
 		var implode_boxplot = function(elem,g){
 			container.selectAll('.normal-points')
@@ -317,6 +334,8 @@ function(d3,d3tip)
 					.duration(300)
 					.delay(200)
           .call(draw_boxplot)
+          
+      dispatch.implode(chart,g);
 		}
 		var create_tip = function(){
 			tip = d3tip().attr('class','d3-exploding-boxplot tip')
@@ -396,6 +415,8 @@ function(d3,d3tip)
       colorscale.range(_)
       return chart;
     };
+    
+    chart = d3.rebind(chart, dispatch, 'on');
 
 
     return chart;
