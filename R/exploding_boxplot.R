@@ -86,12 +86,12 @@ exploding_boxplot <- function(
 #'
 #' @export
 exploding_boxplotOutput <- function(outputId, width = '100%', height = '400px'){
-  shinyWidgetOutput(outputId, 'exploding_boxplot', width, height, package = 'explodingboxplotR')
+  htmlwidgets::shinyWidgetOutput(outputId, 'exploding-boxplot', width, height, package = 'explodingboxplotR')
 }
 
 #' @rdname exploding_boxplot-shiny
 #' @export
 renderExploding_boxplot <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, exploding_boxplotOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, exploding_boxplotOutput, env, quoted = TRUE)
 }
